@@ -1,259 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sathyadarshana Library</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sacred Library | Wisdom</title>
   <style>
-    html, body { height: 100%; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #cce7ff 0%, #e0f3f1 65%, #daf6e1 100%);
-      min-height: 100vh;
-      color: #26334e;
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f8fafc;
+      padding: 1rem;
     }
-    .container {
-      max-width: 950px;
-      margin: 38px auto 22px auto;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 10px 35px 0 #b1cee7, 0 2px 8px #bfe8e1;
-      padding: 36px 18px 20px 18px;
-      position: relative;
-      z-index: 1;
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
     }
     h1 {
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .book {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    }
+    .book h2 {
+      margin: 0 0 0.5rem;
+      color: #a5f3fc;
+    }
+    .book p {
+      margin: 0;
+    }
+    .footer {
       text-align: center;
-      color: #157b8f;
-      font-weight: 700;
-      margin-top: 0;
-      text-shadow: 0 2px 7px #e1f0ff;
-      font-size: 2.2em;
-      letter-spacing: 0.01em;
-    }
-    .search-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.6em;
-      margin-bottom: 1.5em;
-      flex-wrap: wrap;
-    }
-    .search-bar {
-      flex: 1 1 220px;
-      min-width: 0;
-      padding: 15px;
-      border: 1.5px solid #a0c1d7;
-      border-radius: 8px;
-      font-size: 1.12em;
-      background: #f6fbff;
-      box-shadow: 0 2px 8px #e6f7ff inset;
-      outline: none;
-      transition: border .2s;
-    }
-    .search-bar:focus {
-      border: 1.6px solid #67b2e0;
-      background: #f0faff;
-    }
-    .search-btn {
-      background: linear-gradient(135deg, #6bb5fa 70%, #6de7c7 100%);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 14px 32px;
-      font-size: 1.08em;
-      font-weight: 600;
-      box-shadow: 0 3px 14px #b6e3f8, 0 1px 4px #baf6e7;
-      transition: background 0.18s, box-shadow 0.18s, transform 0.14s;
-      cursor: pointer;
-      outline: none;
-    }
-    .search-btn:hover {
-      background: linear-gradient(135deg, #54a6f7 70%, #51e2b1 100%);
-      color: #fff;
-      box-shadow: 0 8px 26px #b2e0f8, 0 2px 10px #c2f6e7;
-      transform: translateY(-2px) scale(1.04);
-    }
-    .book-results {
-      margin-bottom: 1.7em;
-      padding: 0;
-      min-height: 120px;
-      text-align: center;
-    }
-    .book-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 1.2em;
-    }
-    .book-card {
-      background: linear-gradient(135deg, #e0f3f9 60%, #d9f9f1 100%);
-      color: #225096;
-      padding: 1em 1.5em;
-      border-radius: 11px;
-      font-size: 1em;
-      font-weight: 500;
-      box-shadow: 0 3px 10px #c6e4f3, 0 1px 2px #bfe8e1;
-      min-width: 210px;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .book-card:hover {
-      background: linear-gradient(135deg, #cbe4fa 60%, #baf6e7 100%);
-      color: #0d2547;
-      box-shadow: 0 6px 24px #b2e0f8, 0 2px 6px #c2f6e7;
-      transform: translateY(-2px) scale(1.03);
-    }
-    .translate-frame {
-      width: 100%;
-      min-height: 250px;
-      height: 320px;
-      border: 1.5px solid #bfe8e1;
-      border-radius: 10px;
-      background: linear-gradient(120deg,#f9fbfd 70%,#e9f7f6 100%);
-      margin-bottom: 12px;
-      box-shadow: 0 3px 14px #e9f7f6;
-      display: none;
-    }
-    .note {
-      font-size: 1em;
-      color: #6f8898;
-      margin: 10px 2px 18px 2px;
-      text-align: center;
-      background: #f9fdfd;
-      border-radius: 8px;
-      padding: 10px 5px 9px 5px;
-      box-shadow: 0 1px 5px #e3f6f0 inset;
-      line-height: 1.7;
-    }
-    .pricing {
-      background: #eaf9fa;
-      border-left: 4px solid #72e1b8;
-      padding: 1em 1.2em;
-      border-radius: 7px;
-      margin: 1.8em 0 1.2em 0;
-      color: #206d5a;
-      font-size: 1.07em;
-      box-shadow: 0 1px 6px #d8eeed;
-    }
-    @media (max-width: 700px) {
-      .container { padding: 10px 2vw 6px 2vw; max-width: 100vw; }
-      .search-row { flex-direction: column; gap: 10px; }
-      .search-bar { font-size: 1em; padding: 11px; width: 100%; }
-      h1 { font-size: 1.4em; }
-      .book-list { flex-wrap: nowrap; overflow-x: auto; gap: 10px; }
-      .book-card { min-width: 170px; font-size: 0.98em; padding: 10px 7px;}
-      .translate-frame { min-height: 160px; height: 180px;}
-      .note { font-size: 0.97em;}
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Sathyadarshana Library</h1>
-    <div class="search-row">
-      <input type="text" id="searchInput" class="search-bar" placeholder="Book title (e.g. Dhammapada, Bhagavad Gita, Hamlet...)" />
-      <button class="search-btn" onclick="searchBooks()">Search</button>
-    </div>
-    <div id="bookResults" class="book-results"></div>
-    <iframe id="translateFrame" class="translate-frame"></iframe>
+  <header>
+    <h1>📚 Sacred Library of Wisdom</h1>
+    <p>Explore sacred texts from across traditions</p>
+  </header>
 
-    <div class="pricing">
-      <b>Special Note:</b>  
-      - Service for school children: Only $1/month  
-      - University students: $2/month  
-      - Pay monthly or per term as you wish  
-      - FDF (Fast Digital Find) service is FREE for all  
-      - For students unable to pay, principals’ approval + AI (Buddhi) confirmation grants 100% free access  
-      <br><b>AI “Pull Reading Support”</b>: Explains any book, helps with assignments, and more!
-    </div>
+  <section class="book">
+    <h2>📖 Tripitaka (Buddhism)</h2>
+    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
+  </section>
 
-    <div class="note">
-      Search any world book for free. Read and translate books instantly.<br>
-      <b>How it works:</b> Type your book’s name, click search, select your language, and start reading.<br>
-      <span style="color:#7bb4c7">Serenity 3D UI | SathyadarshanaAI | Powered by global open libraries</span>
-    </div>
+  <section class="book">
+    <h2>📖 Bhagavad Gita (Hinduism)</h2>
+    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
+  </section>
+
+  <section class="book">
+    <h2>📖 Bible (Christianity)</h2>
+    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
+  </section>
+
+  <section class="book">
+    <h2>📖 Quran (Islam)</h2>
+    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
+  </section>
+
+  <section class="book">
+    <h2>📖 Book of Enoch</h2>
+    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
+  </section>
+
+  <div class="footer">
+    &copy; 2025 Sathyadarshana | AI Buddhi Powered Library
   </div>
-
-  <script>
-    // Book search: Uses world’s largest open/free book APIs (meta search), and provides language translation via Google Translate preview
-    const openBookLinks = [
-      {title: "Dhammapada (English)", url: "https://www.gutenberg.org/ebooks/201"},
-      {title: "Bhagavad Gita (English)", url: "https://www.gutenberg.org/ebooks/2388"},
-      {title: "Hamlet - Shakespeare", url: "https://www.gutenberg.org/ebooks/1524"},
-      {title: "Astrology Collection", url: "https://www.sacred-texts.com/astro/index.htm"},
-      {title: "HolyBooks - Astrology", url: "https://www.holybooks.com/category/astrology/"},
-      {title: "Gutenberg - Astrology Books", url: "https://www.gutenberg.org/ebooks/search/?query=astrology"},
-      {title: "Internet Archive - Books", url: "https://archive.org/details/texts"},
-      {title: "Open Library - Search", url: "https://openlibrary.org/search?q=astrology"}
-      // add more static links as fallback
-    ];
-
-    function searchBooks() {
-      const query = document.getElementById('searchInput').value.trim();
-      const resultsDiv = document.getElementById('bookResults');
-      const translateFrame = document.getElementById('translateFrame');
-      resultsDiv.innerHTML = '';
-      translateFrame.style.display = 'none';
-
-      if (!query) {
-        resultsDiv.innerHTML = "<span style='color:#999'>Please enter a book title.</span>";
-        return;
-      }
-
-      // For demonstration: Show matching static books first
-      let found = false;
-      let html = '<div class="book-list">';
-      openBookLinks.forEach(book => {
-        if (book.title.toLowerCase().includes(query.toLowerCase())) {
-          found = true;
-          html += `<a class="book-card" href="#" onclick="previewBook('${encodeURIComponent(book.url)}','${encodeURIComponent(book.title)}');return false;">${book.title}</a>`;
-        }
-      });
-
-      html += '</div>';
-      if (!found) {
-        // Show meta search links (global free book search)
-        html = `<div class="book-list">
-          <a class="book-card" href="#" onclick="searchGlobalSite('gutenberg','${encodeURIComponent(query)}');return false;">Search Gutenberg</a>
-          <a class="book-card" href="#" onclick="searchGlobalSite('openlib','${encodeURIComponent(query)}');return false;">Search Open Library</a>
-          <a class="book-card" href="#" onclick="searchGlobalSite('archive','${encodeURIComponent(query)}');return false;">Search Internet Archive</a>
-          <a class="book-card" href="#" onclick="searchGlobalSite('holybooks','${encodeURIComponent(query)}');return false;">Search HolyBooks</a>
-          </div>
-          <div style="color:#888;margin-top:1em;">Searching all world free books. Click a button above to find your book.</div>`;
-      }
-      resultsDiv.innerHTML = html;
-    }
-
-    function previewBook(url, title) {
-      // Direct preview + translation offer
-      const bookUrl = decodeURIComponent(url);
-      const bookTitle = decodeURIComponent(title);
-      // Offer language selection for translation
-      let lang = prompt('Translate book to which language? (si=සිංහල, ta=தமிழ், hi=हिन्दी, en=English, etc.)', 'si');
-      if (!lang) lang = 'si';
-      // Google Translate docs preview
-      const translateUrl = `https://translate.google.com/website?sl=auto&tl=${lang}&u=${encodeURIComponent(bookUrl)}`;
-      const frame = document.getElementById('translateFrame');
-      frame.src = translateUrl;
-      frame.style.display = 'block';
-      frame.scrollIntoView({behavior: 'smooth'});
-    }
-
-    function searchGlobalSite(site, query) {
-      let url = '';
-      query = decodeURIComponent(query);
-      if (site === 'gutenberg') url = `https://www.gutenberg.org/ebooks/search/?query=${encodeURIComponent(query)}`;
-      else if (site === 'openlib') url = `https://openlibrary.org/search?q=${encodeURIComponent(query)}`;
-      else if (site === 'archive') url = `https://archive.org/search?query=${encodeURIComponent(query)}`;
-      else if (site === 'holybooks') url = `https://www.holybooks.com/?s=${encodeURIComponent(query)}`;
-      window.open(url, '_blank');
-    }
-  </script>
 </body>
 </html>
