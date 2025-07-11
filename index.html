@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Wisdom for Humanity</title>
+  <title>Sathyadarshana | The Light of Truth</title>
   <style>
     * {
       margin: 0;
@@ -22,12 +22,14 @@
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
-      background: #020617cc;
+      background: rgba(2, 6, 23, 0.8);
       padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1e293b;
     }
 
     nav a {
@@ -37,15 +39,15 @@
       border: 1px solid #38bdf8;
       margin-right: 0.75rem;
       border-radius: 999px;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
       white-space: nowrap;
-      box-shadow: 0 0 5px #38bdf880;
+      box-shadow: 0 0 6px #38bdf880;
     }
 
     nav a:hover {
       background: #38bdf8;
       color: #0f172a;
-      box-shadow: 0 0 12px #38bdf8;
+      box-shadow: 0 0 15px #38bdf8;
     }
 
     header {
@@ -57,6 +59,7 @@
       font-size: 2.7rem;
       color: #7dd3fc;
       text-shadow: 0 0 10px #0ea5e9;
+      animation: glow 2s ease-in-out infinite alternate;
     }
 
     header p {
@@ -100,10 +103,6 @@
       border-top: 1px solid #1e293b;
     }
 
-    .glow {
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
     @keyframes glow {
       from {
         text-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8;
@@ -117,18 +116,18 @@
 <body>
 
   <nav>
-    <a href="index.html">🏠 Home</a>
+    <a href="index.html">Home</a>
     <a href="library.html">📚 Library</a>
     <a href="astrology.html">🔭 Astrology</a>
     <a href="ai-buddhi.html">🧠 AI Buddhi</a>
-    <a href="music-lab.html">🎵 Sathyadarshana Music Lab</a>
+    <a href="music-lab.html">🎵 Music Lab</a>
     <a href="news.html">📰 News</a>
     <a href="about.html">🌟 About</a>
     <a href="contact.html">✉️ Contact</a>
   </nav>
 
   <header>
-    <h1 class="glow">Sathyadarshana</h1>
+    <h1>Sathyadarshana</h1>
     <p>🌌 Touch the Light. Walk the Path. Awaken the Truth.</p>
   </header>
 
@@ -151,9 +150,9 @@
   </section>
 
   <section>
-    <h2 class="glow">🎼 Sathyadarshana Music Lab</h2>
-    <p>Sing, listen, and feel — where your voice becomes a prayer. Explore sacred songs, AI-enhanced recordings, and our humble Sathyadarshana Studio.</p>
-    <img src="assets/music.jpg" alt="Music Lab Preview" />
+    <h2>🎼 Sathyadarshana Music Lab</h2>
+    <p>Sing, listen, and feel — where your voice becomes a prayer. Featuring sacred songs & Studio recordings.</p>
+    <img src="assets/music.jpg" alt="Music Preview" />
   </section>
 
   <section>
@@ -176,7 +175,7 @@
 
   <footer>
     © 2025 Sathyadarshana.com — All Rights Reserved<br />
-    “May all beings be free from suffering. May wisdom light the Earth.”  
+    “May all beings be free from suffering. May wisdom light the Earth.”
   </footer>
 
 </body>
