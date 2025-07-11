@@ -1,0 +1,15 @@
+# Node / Vite / Next / Astro / Build files (future proof)
+node_modules/
+dist/
+build/
+.vercel/
+.env
+.DS_Store
+.vscode/
+*.log
+*.zip
+*.mp4
+*.mp3
+*.sqlite
+*.pdf
+*.secret
