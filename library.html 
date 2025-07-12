@@ -1,80 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sacred Library | Wisdom</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacred Library | Sathyadarshana</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #0f172a, #000);
+      color: #e0f2fe;
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #f8fafc;
+    }
+    nav {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      background: rgba(2, 6, 23, 0.85);
       padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1e293b;
+    }
+    nav a {
+      color: #38bdf8;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin-right: 0.75rem;
+      border-radius: 999px;
+      border: 1px solid #38bdf8;
+      box-shadow: 0 0 6px #38bdf880;
+      white-space: nowrap;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      box-shadow: 0 0 14px #38bdf8;
     }
     header {
       text-align: center;
-      margin-bottom: 2rem;
+      padding: 3rem 1rem 1rem;
     }
-    h1 {
-      font-size: 2rem;
-      color: #38bdf8;
+    header h1 {
+      font-size: 2.5rem;
+      color: #7dd3fc;
+      text-shadow: 0 0 12px #0ea5e9;
+      animation: flicker 2s infinite alternate;
+    }
+    @keyframes flicker {
+      from { text-shadow: 0 0 8px #38bdf8; }
+      to { text-shadow: 0 0 20px #0ea5e9; }
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
     }
     .book {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(30, 58, 138, 0.2);
       padding: 1rem;
       border-radius: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      border: 1px solid #334155;
+      box-shadow: 0 0 20px #1e3a8a55;
+      text-align: center;
     }
     .book h2 {
-      margin: 0 0 0.5rem;
-      color: #a5f3fc;
+      color: #38bdf8;
+      font-size: 1.2rem;
     }
     .book p {
-      margin: 0;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #94a3b8;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #1e293b;
+      font-size: 0.9rem;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>📚 Sacred Library of Wisdom</h1>
-    <p>Explore sacred texts from across traditions</p>
-  </header>
-
-  <section class="book">
-    <h2>📖 Tripitaka (Buddhism)</h2>
-    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
-  </section>
-
-  <section class="book">
-    <h2>📖 Bhagavad Gita (Hinduism)</h2>
-    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
-  </section>
-
-  <section class="book">
-    <h2>📖 Bible (Christianity)</h2>
-    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
-  </section>
-
-  <section class="book">
-    <h2>📖 Quran (Islam)</h2>
-    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
-  </section>
-
-  <section class="book">
-    <h2>📖 Book of Enoch</h2>
-    <p><a href="#">Download PDF</a> | <a href="#">Read Online</a></p>
-  </section>
-
-  <div class="footer">
-    &copy; 2025 Sathyadarshana | AI Buddhi Powered Library
-  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="library.html">📚 Library</a>
+    <a href="astrology.html">🔭 Astrology</a>
+    <a href="ai-buddhi.html">🧠 AI Buddhi</a>
+    <a href="music-lab.html">🎵 Music Lab</a>
+    <a href="news.html">📰 News</a>
+    <a href="about.html">🌟 About</a>
+    <a href="contact.html">✉️ Contact</a>
+  </nav>  <header>
+    <h1>📚 Sacred Library</h1>
+    <p>Explore divine texts from all traditions — free, multilingual & protected.</p>
+  </header>  <section class="grid">
+    <div class="book">
+      <h2>📜 Tripitaka</h2>
+      <p>The Buddhist canon in Pali — Vinaya, Sutta & Abhidhamma.</p>
+    </div>
+    <div class="book">
+      <h2>📖 Bible (Enoch + Revelation)</h2>
+      <p>Includes canonical and apocryphal texts with voice reading.</p>
+    </div>
+    <div class="book">
+      <h2>🕉️ Bhagavad Gita</h2>
+      <p>The divine conversation between Krishna and Arjuna.</p>
+    </div>
+    <div class="book">
+      <h2>📚 Quran</h2>
+      <p>The holy revelation to Prophet Muhammad (PBUH).</p>
+    </div>
+    <div class="book">
+      <h2>📘 Mahavamsa</h2>
+      <p>The great chronicle of Sri Lankan kings and Buddhist history.</p>
+    </div>
+    <div class="book">
+      <h2>🔮 Key of Solomon</h2>
+      <p>Mystical teachings from ancient esoteric traditions.</p>
+    </div>
+  </section>  <footer>
+    © 2025 Sathyadarshana.com — Sacred Knowledge for Humanity
+  </footer>
 </body>
 </html>
